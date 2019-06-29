@@ -54,6 +54,7 @@ kotlin {
                 implementation "io.ktor:ktor-server-jetty:$ktor_version"
                 implementation "io.ktor:ktor-html-builder:$ktor_version"
                 implementation "ch.qos.logback:logback-classic:$logback_version"
+                implementation 'org.jetbrains:kotlin-css-jvm:1.0.0-pre.31-kotlin-1.2.41'
             }
         }
         jvmTest {

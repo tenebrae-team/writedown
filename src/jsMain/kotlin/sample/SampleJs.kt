@@ -3,23 +3,14 @@ package sample
 import kotlinx.css.Color
 import kotlinx.css.Color.Companion
 import kotlinx.css.Display.flex
-import kotlinx.css.properties.BoxShadow
-import kotlinx.css.properties.BoxShadows
 import kotlinx.css.properties.boxShadow
 import kotlinx.css.px
+import org.w3c.dom.HTMLMarqueeElement
 import react.*
 import react.dom.*
 import styled.css
 import styled.styledDiv
 import kotlin.browser.*
-
-actual class Sample {
-    actual fun checkMe() = 12
-}
-
-actual object Platform {
-    actual val name: String = "JS"
-}
 
 fun RBuilder.hello(name: String) {
     h1 {
@@ -29,11 +20,11 @@ fun RBuilder.hello(name: String) {
     styledDiv {
         css {
             display = flex
-            boxShadow(Color.red, 20.px, (-20).px)
+            boxShadow(Color.red, 20.px, -20.px)
         }
-        +"shandowed"
+        +"<i>shandowed</i>"
     }
-    +"Hi! from Kotlin.JS ${hello()}, check me value: ${Sample().checkMe()}"
+    +"Hi! from Kotlin.JS ${hello()}"
 }
 
 class SampleComponent : RComponent<SampleProps, RState>() {
