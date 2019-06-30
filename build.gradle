@@ -84,9 +84,7 @@ kotlin {
 
 kotlinFrontend {
     npm {
-        devDependency "karma"
-        dependency "@jetbrains/kotlin-react", kotlin_react_version
-        dependency "@jetbrains/kotlin-react-dom", kotlin_react_version
+        devDependency "karma"   
         dependency "react"
         dependency "react-dom"
         dependency "@jetbrains/kotlin-css"
@@ -108,3 +106,6 @@ ktor {
     port = 8080
     mainClass = "io.ktor.server.jetty.EngineMain"
 }
+
+run.dependsOn(stop)
+run.mustRunAfter(stop)
