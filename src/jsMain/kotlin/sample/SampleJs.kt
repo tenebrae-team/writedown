@@ -1,26 +1,30 @@
 package sample
 
-import kotlinx.css.Color
-import kotlinx.css.Color.Companion
-import kotlinx.css.Display.flex
+import kotlinx.css.Display.*
 import kotlinx.css.properties.boxShadow
-import kotlinx.css.px
-import org.w3c.dom.HTMLMarqueeElement
+import kotlinx.css.*
+import kotlinx.css.Color.Companion.red
 import react.*
 import react.dom.*
-import styled.css
-import styled.styledDiv
+import react.router.dom.*
+import styled.*
 import kotlin.browser.*
 
 fun RBuilder.hello(name: String) {
     h1 {
         +"Hello, $name"
     }
+    styledH1 {
+        css {
+            backgroundColor = red
+        }
+        +"HENONONONNOL"
+    }
 
     styledDiv {
         css {
             display = flex
-            boxShadow(Color.red, 20.px, -20.px)
+            boxShadow(red, 20.px, -20.px)
         }
         +"<i>shandowed</i>"
     }
@@ -31,6 +35,36 @@ class SampleComponent : RComponent<SampleProps, RState>() {
     override fun RBuilder.render() {
         h2 {
             +"sempl ${props.content}"
+        }
+    }
+}
+
+class RootComponent : RComponent<RProps, RState>() {
+    override fun RBuilder.render() {
+        browserRouter {
+            switch {
+                route("/", SampleComponent::class, exact = true)
+                route("/a", exact = true) {
+                    h1 {
+                        +"EXACC"
+                    }
+                }
+                route("/b", exact = false) {
+                    h1 {
+                        +"DISEXACC"
+                    }
+                }
+                route("/gitara//", strict = true) {
+                    navLink("/gitare//") {
+                        +"HAHAHAHAHAHAHA"
+                    }
+                }
+                route("/gitare//", strict = false) {
+                    navLink("/gitara//") {
+                        +"11111"
+                    }
+                }
+            }
         }
     }
 }
@@ -47,7 +81,8 @@ fun RBuilder.sample(content: String) {
 
 fun main() {
     render(document.getElementById("js-response")) {
-        hello("np")
-        sample("slava")
+//        hello("np")
+//        sample("slava")
+        child(RootComponent::class) { /* */ }
     }
 }

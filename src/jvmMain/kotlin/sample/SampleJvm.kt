@@ -16,8 +16,9 @@ private const val fontsSource = "https://fonts.googleapis.com/css?family=Lato|PT
 
 @Suppress("unused")
 fun Application.main() {
+    println(111211)
     routing {
-        get("/") {
+        get("{...}") {
             call.respondHtml {
                 head {
                     link(rel = "stylesheet", href = "/styles.css", type = "text/css")
