@@ -105,3 +105,6 @@ ktor {
     port = 8080
     mainClass = "io.ktor.server.jetty.EngineMain"
 }
+
+run.dependsOn(stop)
+run.mustRunAfter(stop)
