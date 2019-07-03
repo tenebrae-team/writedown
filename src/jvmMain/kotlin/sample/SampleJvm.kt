@@ -16,7 +16,6 @@ private const val fontsSource = "https://fonts.googleapis.com/css?family=Lato|PT
 
 @Suppress("unused")
 fun Application.main() {
-    println(111211)
     routing {
         get("{...}") {
             call.respondHtml {
@@ -29,7 +28,7 @@ fun Application.main() {
                         id = "js-response"
                         div("loading-wrapper wrapper") {
                             div("js-loading") {
-                                +"Loading"
+                                +"Loading..."
                             }
                         }
                     }

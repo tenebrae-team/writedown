@@ -10,6 +10,18 @@ import react.router.dom.*
 import styled.*
 import kotlin.browser.*
 
+
+external interface CKEditorProps : RProps {
+    var editor: dynamic
+}
+
+@JsModule("@ckeditor/ckeditor5-react")
+external val CKEditor : RClass<CKEditorProps>
+
+@JsModule("@ckeditor/ckeditor5-build-classic")
+external val CKEditorClassic : dynamic
+
+
 fun RBuilder.hello(name: String) {
     h1 {
         +"Hello, $name"
@@ -35,6 +47,10 @@ class SampleComponent : RComponent<SampleProps, RState>() {
     override fun RBuilder.render() {
         h2 {
             +"sempl ${props.content}"
+        }
+        CKEditor {
+            childList.addAll(Children.toArray(props.children))
+            attrs.editor = CKEditorClassic
         }
     }
 }
@@ -81,8 +97,9 @@ fun RBuilder.sample(content: String) {
 
 fun main() {
     render(document.getElementById("js-response")) {
-//        hello("np")
-//        sample("slava")
+        hello("np")
+        sample("slava")
+
         child(RootComponent::class) { /* */ }
     }
 }
