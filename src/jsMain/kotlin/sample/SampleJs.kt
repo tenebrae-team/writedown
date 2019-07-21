@@ -16,16 +16,17 @@ external interface CKEditorProps : RProps {
 }
 
 @JsModule("@ckeditor/ckeditor5-react")
-external val CKEditor : RClass<CKEditorProps>
+external val CKEditor: RClass<CKEditorProps>
 
 @JsModule("@ckeditor/ckeditor5-build-classic")
-external val CKEditorClassic : dynamic
+external val CKEditorClassic: dynamic
 
 
 fun RBuilder.hello(name: String) {
     h1 {
         +"Hello, $name"
     }
+
     styledH1 {
         css {
             backgroundColor = red
@@ -36,7 +37,7 @@ fun RBuilder.hello(name: String) {
     styledDiv {
         css {
             display = flex
-            boxShadow(red, 20.px, -20.px)
+            boxShadow(red, 20.px, (-20).px)
         }
         +"<i>shandowed</i>"
     }

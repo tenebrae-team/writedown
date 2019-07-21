@@ -5,6 +5,8 @@ import io.ktor.application.ApplicationCall
 import io.ktor.application.call
 import io.ktor.html.respondHtml
 import io.ktor.http.ContentType
+import io.ktor.http.content.file
+import io.ktor.http.content.static
 import io.ktor.response.respondText
 import io.ktor.routing.get
 import io.ktor.routing.routing
@@ -36,6 +38,10 @@ fun Application.main() {
                     }
                 }
             }
+        }
+
+        static {
+            file("/main.bundle.js", "build/bundle/main.bundle.js")
         }
 
         get("/styles.css") {
