@@ -22,8 +22,9 @@ fun Application.main() {
         get("{...}") {
             call.respondHtml {
                 head {
-                    link(rel = "stylesheet", href = "/styles.css", type = "text/css")
-                    link(rel = "stylesheet", href = fontsSource, type = "text/css")
+                    title { +"Writedown" }
+                    styleLink("/styles.css")
+                    styleLink(fontsSource)
                 }
                 body("wrapper") {
                     div("wrapper") {
@@ -56,13 +57,13 @@ fun Application.main() {
                     justifyContent = JustifyContent.center
                     alignItems = Align.center
                 }
-                rule("*") {
+                rule("html, body") {
                     fontFamily = "'Lato', sans-serif"
                     margin = "0"
                     padding = "0"
                 }
                 rule(".js-loading") {
-                    color = Color("#008899")
+                    color = Color("#aaaaaa")
                 }
             }
         }

@@ -17,6 +17,8 @@ def logback_version = '1.2.3'
 def kotlin_react_version = "16.6.0-pre.67"
 // def kotlin_version = '1.3.30'
 
+apply plugin: "kotlin-dce-js"
+
 kotlin {
     jvm()
 
@@ -76,9 +78,10 @@ kotlinFrontend {
         dependency "styled-components", "3"
         dependency "@ckeditor/ckeditor5-react"
         dependency "@ckeditor/ckeditor5-build-classic"
+        dependency "@ckeditor/ckeditor5-build-decoupled-document"
     }
 
-    sourceMaps = true
+    sourceMaps = false
 
     webpackBundle {
         bundleName = "main"
