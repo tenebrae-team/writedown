@@ -1,17 +1,15 @@
 package sample
 
-import kotlinx.css.BorderStyle
-import kotlinx.css.FlexDirection
-import kotlinx.css.px
 import react.*
 import kotlin.browser.document
-
+import kotlin.browser.localStorage
 
 external interface CKEditorProps : RProps {
     var editor: dynamic
     var data: String
     var config: dynamic
     var onInit: (dynamic) -> Unit
+    var onChange: (dynamic, dynamic) -> Unit
 }
 
 @JsModule("@ckeditor/ckeditor5-react")
@@ -27,21 +25,6 @@ interface EditorPageProps : RProps {
 
 class EditorPage : RComponent<EditorPageProps, RState>() {
     override fun RBuilder.render() {
-        addStyle {
-            rule(".ck.ck-toolbar") {
-                flexDirection = FlexDirection.column
-                padding = "0"
-                borderLeftStyle = BorderStyle.none
-            }
-            rule(".ck.ck-content") {
-                fontFamily = "'PT Serif', serif"
-                fontSize = 15.px
-            }
-            rule(".ck.ck-button") {
-                margin = "0"
-                padding = "5px"
-            }
-        }
         leftSided {
         }
         centered {
@@ -54,6 +37,9 @@ class EditorPage : RComponent<EditorPageProps, RState>() {
                 attrs.onInit = {
                     val toolbar = it.ui.view.toolbar.element
                     document.getElementById("left")!!.appendChild(toolbar)
+                }
+                attrs.onChange = fun(_, editor) {
+                    localStorage.setItem("draftText", editor.getData())
                 }
             }
         }

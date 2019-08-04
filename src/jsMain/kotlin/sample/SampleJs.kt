@@ -3,16 +3,21 @@ package sample
 import react.*
 import react.dom.*
 import react.router.dom.*
+import styled.StyledComponents
+import styled.injectGlobal
 import kotlin.browser.*
-
 
 class RootComponent : RComponent<RProps, RState>() {
     override fun RBuilder.render() {
+        StyledComponents.injectGlobal(::globalStyles)
         browserRouter {
             switch {
                 route("/", exact = true) {
                     child(EditorPage::class) {
-                        attrs.text = "hihihihihhuhuhuhuhuhu"
+                        val text = localStorage.getItem("draftText")
+                        if (text != null) {
+                            attrs.text = text
+                        }
                     }
                 }
                 route("/a", exact = true) {
