@@ -1,0 +1,5 @@
+build/
+.gradle/
+
+# because we use idea
+.idea/
