@@ -72,6 +72,8 @@ kotlinFrontend {
         dependency "react"
         dependency "react-dom"
         dependency "react-router-dom"
+        dependency "css-loader"
+        dependency "mini-css-extract-plugin"
         dependency "@jetbrains/kotlin-css"
         dependency "@jetbrains/kotlin-css-js"
         dependency "inline-style-prefixer" 

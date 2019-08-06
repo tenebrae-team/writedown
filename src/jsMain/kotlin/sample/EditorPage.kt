@@ -18,6 +18,9 @@ external val CKEditor: RClass<CKEditorProps>
 @JsModule("@ckeditor/ckeditor5-build-decoupled-document")
 external val DecoupledEditor: dynamic
 
+external fun require(name: String): dynamic
+
+val styles = require("ckeditor.css")
 
 interface EditorPageProps : RProps {
     var text: String
@@ -29,6 +32,7 @@ class EditorPage : RComponent<EditorPageProps, RState>() {
         }
         centered {
             CKEditor {
+                console.log(styles)
                 attrs.editor = DecoupledEditor
                 attrs.data = props.text
                 attrs.config = js("""{

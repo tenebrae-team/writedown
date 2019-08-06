@@ -24,6 +24,7 @@ fun Application.main() {
                 head {
                     title { +"Writedown" }
                     styleLink("/styles.css")
+                    styleLink("/main.bundle.css")
                     styleLink(fontsSource)
                 }
                 body("wrapper") {
@@ -43,6 +44,10 @@ fun Application.main() {
 
         static {
             file("/main.bundle.js", "build/bundle/main.bundle.js")
+        }
+
+        static {
+            file("/main.bundle.css", "build/bundle/main.bundle.css")
         }
 
         get("/styles.css") {

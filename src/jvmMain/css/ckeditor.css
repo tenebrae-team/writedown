@@ -1,0 +1,18 @@
+.ck.ck-toolbar.ck-reset_all.ck-rounded-corners {
+    flex-direction: column;
+    padding: 0;
+    border-left-style: none;
+}
+.ck.ck-content {
+    font-family: 'PT Serif', serif;
+    font-size: 17px;
+    line-height: 1.5em
+}
+.ck.ck-content.ck-editor__editable.ck-focused {
+    border: 1px solid transparent;
+    box-shadow: none;
+}
+.ck.ck-button {
+    margin: 0;
+    padding: 5px;
+}

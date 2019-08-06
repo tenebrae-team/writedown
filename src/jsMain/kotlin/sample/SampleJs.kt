@@ -9,7 +9,6 @@ import kotlin.browser.*
 
 class RootComponent : RComponent<RProps, RState>() {
     override fun RBuilder.render() {
-        StyledComponents.injectGlobal(::globalStyles)
         browserRouter {
             switch {
                 route("/", exact = true) {
