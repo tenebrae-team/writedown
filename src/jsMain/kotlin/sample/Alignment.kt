@@ -33,6 +33,18 @@ fun RBuilder.leftSided(content: StyledDOMBuilder<DIV>.() -> Unit) {
     }
 }
 
+fun RBuilder.rightSided(content: StyledDOMBuilder<DIV>.() -> Unit) {
+    styledDiv {
+        css {
+            position = Position.fixed
+            right = 0.em
+            top = 0.em
+            height = 100.pct
+        }
+        content()
+    }
+}
+
 fun RBuilder.spacer() {
     styledDiv {
         css {
