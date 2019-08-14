@@ -14,8 +14,6 @@ import kotlinx.html.*
 import kotlinx.css.*
 import kotlinx.css.Display.*
 
-private const val fontsSource = "https://fonts.googleapis.com/css?family=Lato|PT+Serif&display=swap"
-
 @Suppress("unused")
 fun Application.main() {
     routing {
@@ -25,7 +23,6 @@ fun Application.main() {
                     title { +"Writedown" }
                     styleLink("/styles.css")
                     styleLink("/main.bundle.css")
-                    styleLink(fontsSource)
                 }
                 body("wrapper") {
                     div("wrapper") {

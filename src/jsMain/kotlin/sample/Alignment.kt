@@ -27,8 +27,16 @@ fun RBuilder.leftSided(content: StyledDOMBuilder<DIV>.() -> Unit) {
             position = Position.fixed
             left = 0.em
             top = 0.em
+            height = 100.pct
         }
-        attrs.id = "left"
         content()
+    }
+}
+
+fun RBuilder.spacer() {
+    styledDiv {
+        css {
+            height = 20.px
+        }
     }
 }

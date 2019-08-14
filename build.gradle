@@ -79,7 +79,6 @@ kotlinFrontend {
         dependency "inline-style-prefixer" 
         dependency "styled-components", "3"
         dependency "@ckeditor/ckeditor5-react"
-        dependency "@ckeditor/ckeditor5-build-classic"
         dependency "@ckeditor/ckeditor5-build-decoupled-document"
     }
 

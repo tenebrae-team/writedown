@@ -7,4 +7,4 @@ config.plugins.push(new MiniCssExtractPlugin({
 config.module.rules.push({ test: /\.css$/, use: [ {
         loader: MiniCssExtractPlugin.loader
     }, 'css-loader' ] });
-config.resolve.modules.push("../src/jvmMain/css");
+config.resolve.modules.push("../src/jsMain/css");

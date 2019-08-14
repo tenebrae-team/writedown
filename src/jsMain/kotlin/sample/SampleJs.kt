@@ -3,20 +3,22 @@ package sample
 import react.*
 import react.dom.*
 import react.router.dom.*
-import styled.StyledComponents
-import styled.injectGlobal
 import kotlin.browser.*
+
+external fun require(name: String): dynamic
+
+val fontsStyle = require("fonts.css")
 
 class RootComponent : RComponent<RProps, RState>() {
     override fun RBuilder.render() {
+        console.log(fontsStyle)
         browserRouter {
             switch {
                 route("/", exact = true) {
                     child(EditorPage::class) {
-                        val text = localStorage.getItem("draftText")
-                        if (text != null) {
-                            attrs.text = text
-                        }
+                        attrs.title = localStorage.getItem("draftTitle") ?: ""
+                        attrs.author = localStorage.getItem("draftAuthor") ?: ""
+                        attrs.text = localStorage.getItem("draftText") ?: ""
                     }
                 }
                 route("/a", exact = true) {
